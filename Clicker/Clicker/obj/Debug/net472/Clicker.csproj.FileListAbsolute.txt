@@ -1,8 +1,0 @@
-E:\CodingStuff\CheatsProject\Repos\Clicker\Clicker\Clicker\obj\Debug\net472\Clicker.csproj.AssemblyReference.cache
-E:\CodingStuff\CheatsProject\Repos\Clicker\Clicker\Clicker\obj\Debug\net472\Clicker.csproj.SuggestedBindingRedirects.cache
-E:\CodingStuff\CheatsProject\Repos\Clicker\Clicker\Clicker\obj\Debug\net472\Clicker.Form1.resources
-E:\CodingStuff\CheatsProject\Repos\Clicker\Clicker\Clicker\obj\Debug\net472\Clicker.csproj.GenerateResource.cache
-E:\CodingStuff\CheatsProject\Repos\Clicker\Clicker\Clicker\obj\Debug\net472\Clicker.GeneratedMSBuildEditorConfig.editorconfig
-E:\CodingStuff\CheatsProject\Repos\Clicker\Clicker\Clicker\obj\Debug\net472\Clicker.AssemblyInfoInputs.cache
-E:\CodingStuff\CheatsProject\Repos\Clicker\Clicker\Clicker\obj\Debug\net472\Clicker.AssemblyInfo.cs
-E:\CodingStuff\CheatsProject\Repos\Clicker\Clicker\Clicker\obj\Debug\net472\Clicker.csproj.CoreCompileInputs.cache
