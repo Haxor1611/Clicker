@@ -95,7 +95,7 @@ void doClicks()
 			}
 		
 	}
-}
+}/*
 void doJitter() {
 	while (true) {
 		if (Globals::jitterEnabled) {
@@ -128,3 +128,4 @@ DWORD getRandomY() {
 	}
 	return y;
 }
+*/
