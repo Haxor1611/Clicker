@@ -43,6 +43,7 @@ int __stdcall wWinMain(
 		if (GetAsyncKeyState(VK_END) & 1) {
 			Destroy();
 		}
+		
 		Globals::interval = ((int)lround(1000 / Globals::cps)) + (1 + (rand() % Globals::humanisation));
 
 		
@@ -80,14 +81,18 @@ void doClicks()
 {
 	
 	while (true) {
-		while (Globals::enabled) {
-			POINT currentMousePos;
-			GetCursorPos(&currentMousePos);
-			mouse_event(MOUSEEVENTF_LEFTDOWN, currentMousePos.x, currentMousePos.y, 0, 0);
-			mouse_event(MOUSEEVENTF_LEFTUP, currentMousePos.x, currentMousePos.y, 0, 0);
-			Sleep(Globals::interval);
-			
+		if (Globals::enabled) {
+			if (GetAsyncKeyState(VK_LBUTTON)) {
+				POINT currentMousePos;
+				GetCursorPos(&currentMousePos);
+				mouse_event(MOUSEEVENTF_LEFTDOWN, currentMousePos.x, currentMousePos.y, 0, 0);
+				mouse_event(MOUSEEVENTF_LEFTUP, currentMousePos.x, currentMousePos.y, 0, 0);
+				Sleep(Globals::interval);
+			}
+
 		}
+			
+		
 		
 	}
 }
