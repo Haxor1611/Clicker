@@ -313,6 +313,7 @@ void gui::Render() noexcept
 	ImGui::Checkbox("Enabled", &Globals::enabled);
 	ImGui::SliderInt("CPS", &Globals::cps, 1, 20);
 	ImGui::SliderInt("Humanisation", &Globals::humanisation, 1, 10);
+	ImGui::Checkbox("Jitter Enabled", &Globals::jitterEnabled);
 	ImGui::SliderInt("Jitter", &Globals::jitter, 1, 10);
 	
 

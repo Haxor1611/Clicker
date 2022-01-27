@@ -6,9 +6,11 @@
 void Destroy();
 void minimize(HWND, bool);
 void doClicks();
+void doJitter();
 //void humanise();
 //void doJitter();
-
+DWORD getRandomY();
+DWORD getRandomX();
 bool show;
 
 
@@ -26,6 +28,7 @@ int __stdcall wWinMain(
 	SetWindowPos(gui::window, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE);
 
 	std::thread{ doClicks }.detach();
+	std::thread{ doJitter }.detach();
 
 	while (gui::exit)
 	{
@@ -37,7 +40,7 @@ int __stdcall wWinMain(
 			show = !show;
 			minimize(gui::window, show);
 		}
-		if (GetAsyncKeyState(VK_F1) & 1) {
+		if (GetAsyncKeyState(VK_RBUTTON) & 1) {
 			Globals::enabled = !Globals::enabled;
 		}
 		if (GetAsyncKeyState(VK_END) & 1) {
@@ -81,18 +84,47 @@ void doClicks()
 {
 	
 	while (true) {
-		if (Globals::enabled) {
-			if (GetAsyncKeyState(VK_LBUTTON)) {
+		
+			if ( Globals::enabled) {
 				POINT currentMousePos;
 				GetCursorPos(&currentMousePos);
 				mouse_event(MOUSEEVENTF_LEFTDOWN, currentMousePos.x, currentMousePos.y, 0, 0);
+				Sleep(1);
 				mouse_event(MOUSEEVENTF_LEFTUP, currentMousePos.x, currentMousePos.y, 0, 0);
 				Sleep(Globals::interval);
 			}
-
-		}
-			
-		
 		
 	}
+}
+void doJitter() {
+	while (true) {
+		if (Globals::jitterEnabled) {
+			mouse_event(MOUSEEVENTF_MOVE, getRandomX(), getRandomY(), 0, 0);
+			Sleep((rand() % Globals::jitter) * rand() % 750);
+		}
+	}
+}
+DWORD getRandomX() {
+	DWORD x;
+	int minPlu = rand() % 3;
+	if (minPlu == 1) {
+		x = (rand() % Globals::jitter) * 2 - (rand() % 2) * 5;
+
+	}
+	else {
+		x = (rand() % Globals::jitter) * 2 + (rand() % 2) * 5;
+	}
+	return x;
+}
+DWORD getRandomY() {
+	DWORD y;
+	int minPlu = rand() % 3;
+	if (minPlu == 1) {
+		y = (rand() % Globals::jitter) * 2 - (rand() % 2) * 5;
+
+	}
+	else {
+		y = (rand() % Globals::jitter) * 2 + (rand() % 2) * 5;
+	}
+	return y;
 }
