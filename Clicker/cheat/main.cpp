@@ -6,11 +6,6 @@
 void Destroy();
 void minimize(HWND, bool);
 void doClicks();
-void doJitter();
-//void humanise();
-//void doJitter();
-DWORD getRandomY();
-DWORD getRandomX();
 bool show;
 
 
@@ -95,37 +90,4 @@ void doClicks()
 			}
 		
 	}
-}/*
-void doJitter() {
-	while (true) {
-		if (Globals::jitterEnabled) {
-			mouse_event(MOUSEEVENTF_MOVE, getRandomX(), getRandomY(), 0, 0);
-			Sleep((rand() % Globals::jitter) * rand() % 750);
-		}
-	}
 }
-DWORD getRandomX() {
-	DWORD x;
-	int minPlu = rand() % 3;
-	if (minPlu == 1) {
-		x = (rand() % Globals::jitter) * 2 - (rand() % 2) * 5;
-
-	}
-	else {
-		x = (rand() % Globals::jitter) * 2 + (rand() % 2) * 5;
-	}
-	return x;
-}
-DWORD getRandomY() {
-	DWORD y;
-	int minPlu = rand() % 3;
-	if (minPlu == 1) {
-		y = (rand() % Globals::jitter) * 2 - (rand() % 2) * 5;
-
-	}
-	else {
-		y = (rand() % Globals::jitter) * 2 + (rand() % 2) * 5;
-	}
-	return y;
-}
-*/
